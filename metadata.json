@@ -1,0 +1,6 @@
+{
+  "name": "Noyan Plumbing | Reliable Solutions in Norwich",
+  "description": "Professional local plumbing services in Norwich, Freethorpe, and Norfolk. Expert leak detection, pipe repair, tap and shower installations, and drain unblocking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

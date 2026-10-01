@@ -1,0 +1,295 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM TOKENS & BASE STYLES — NOYAN PLUMBING (LUXURY PURPLE & BEIGE)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Fonts */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Colors */
+  --color-primary: #3E1F47;
+  --color-primary-hover: #2C1333;
+  --color-primary-light: #522760;
+  --color-secondary: #F5EFEB;
+  --color-secondary-hover: #ECE4DC;
+  --color-accent: #783988;
+  --color-accent-soft: rgba(120, 57, 136, 0.1);
+  --color-ink: #18111B;
+  --color-ink-muted: #5E5564;
+  --color-ink-light: #8E8396;
+  --color-bg: #FAF8F5;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F3ECE4;
+  --color-border: rgba(62, 31, 71, 0.12);
+  --color-border-subtle: rgba(24, 17, 27, 0.08);
+
+  /* Spacing Scale (4, 8, 16, 24, 32, 48, 64, 96, 128px) */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-96: 96px;
+  --space-128: 128px;
+
+  /* Container */
+  --max-width: 1200px;
+  --side-padding: 24px;
+
+  /* Border Radius Scale (8px inputs/buttons, 16px cards/images) */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+
+  /* Shadows (Two levels only) */
+  --shadow-resting: 0 4px 20px -2px rgba(24, 17, 27, 0.06);
+  --shadow-hover: 0 12px 32px -4px rgba(24, 17, 27, 0.12);
+
+  /* Transitions */
+  --transition-fast: 180ms ease;
+  --transition-normal: 240ms ease;
+}
+
+/* Base Reset & Typography */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.4rem;
+  line-height: 1.25;
+}
+
+p {
+  max-width: 65ch;
+  color: var(--color-ink-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Section Anchor Spacing for Fixed Navbar */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Layout Container */
+.container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+  width: 100%;
+}
+
+/* Vertical Section Spacing */
+.section-padding {
+  padding-top: var(--space-96);
+  padding-bottom: var(--space-96);
+}
+
+@media (max-width: 1024px) {
+  .section-padding {
+    padding-top: var(--space-64);
+    padding-bottom: var(--space-64);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-padding {
+    padding-top: var(--space-48);
+    padding-bottom: var(--space-48);
+  }
+}
+
+/* Section Eyebrow (Section label small caps) */
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: inline-block;
+  margin-bottom: var(--space-16);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(62, 31, 71, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(62, 31, 71, 0.28);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-ink);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-hover);
+  border-color: rgba(62, 31, 71, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-outline-light {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+}
+
+.btn-accent:hover {
+  background-color: #632d72;
+  transform: translateY(-1px);
+}
+
+/* Cards */
+.card-base {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-resting);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.card-base:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-border);
+  transform: translateY(-3px);
+}
+
+/* Image container with fixed aspect ratio */
+.img-cover-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface-alt);
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.card-base:hover .img-cover {
+  transform: scale(1.03);
+}
+
+/* Subtle separator */
+.hairline-divider {
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-border-subtle);
+  margin: var(--space-48) 0;
+}
